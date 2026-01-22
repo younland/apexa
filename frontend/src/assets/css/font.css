@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'HarmonyOS SansSC Regular';
+  src: url('./HarmonyOS_SansSC_Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化加载体验 */
+}
+
+body {
+  font-family: 'HarmonyOS SansSC Regular', sans-serif;
+}

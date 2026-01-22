@@ -1,22 +1,30 @@
+<script setup lang="ts">
+  import Request from '@/components/request/index.vue'
+  import AppSidebar from './AppSidebar.vue'
+</script>
+
 <template>
-  <div class="basic-layout h-full w-full">
-    <el-splitter>
-      <el-splitter-panel size="20%" :min="240">
-        <div class="demo-panel">1</div>
-      </el-splitter-panel>
-      <el-splitter-panel :min="400">
-        <div class="demo-panel">2</div>
-      </el-splitter-panel>
-    </el-splitter>
+  <div class="basic-layout flex h-full w-full">
+    <SidebarProvider
+      class="hidden md:flex"
+      :style="{
+        '--sidebar-width': 'calc(var(--spacing) * 64)',
+        '--header-height': 'calc(var(--spacing) * 12 + 1px)'
+      }"
+    >
+      <AppSidebar variant="sidebar" />
+      <main></main>
+      <SidebarInset>
+        <div class="flex flex-1 flex-col">
+          <Request>
+            <template #top-prefix>
+              <SidebarTrigger />
+            </template>
+          </Request>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   </div>
 </template>
 
-<style lang="less">
-  .basic-layout {
-    :deep(.el-splitter-bar__dragger-horizontal) {
-      ::before {
-        width: 1px !important;
-      }
-    }
-  }
-</style>
+<style lang="less" scoped></style>

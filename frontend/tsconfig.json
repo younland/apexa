@@ -17,9 +17,7 @@
     ],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": [
-      "element-plus/global"
-    ],
+    "types": [],
     "baseUrl": "./",
     "paths": {
       "@/*": [
@@ -33,6 +31,8 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "bindings"
+    "bindings",
+    "./auto-imports.d.ts",
+    "./components.d.ts"
   ],
 }

@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@import './font.css';
+@import './tailwind.css';
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+button:hover {
+  cursor: pointer;
+}

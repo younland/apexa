@@ -1,10 +1,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-import './global.css'
+import './assets/css/main.css'
+import { registerUI, registerIcons } from '@/hooks'
 
-const app = createApp(App)
+async function init() {
+  // 注册本地图标
+  await registerIcons()
 
-app.use(ElementPlus)
-app.mount('#app')
+  const app = createApp(App)
+
+  // 注册shadcn-vue UI组件
+  await registerUI(app)
+
+  app.mount('#app')
+}
+
+init()
