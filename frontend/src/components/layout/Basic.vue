@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import Request from '@/components/request/index.vue'
-  import AppSidebar from './AppSidebar.vue'
+import Request from '@/components/request/index.vue'
+import AppSidebar from './AppSidebar.vue'
 </script>
 
 <template>
@@ -18,7 +18,7 @@
         <div class="flex flex-1 flex-col">
           <Request>
             <template #top-prefix>
-              <SidebarTrigger />
+              <SidebarTrigger class="text-muted-foreground hover:text-muted-foreground" />
             </template>
           </Request>
         </div>

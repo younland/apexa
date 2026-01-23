@@ -15,20 +15,15 @@ export default defineConfig({
     AutoImport({
       dts: true,
       imports: [
-        'vue'
-        // 'vue-router',
+        'vue',
         // 'pinia',
         // 其他需要自动导入的库
-        // '@vueuse/core'
+        {
+          '@vueuse/core': ['useMouse', 'useFetch'],
+          'lodash-es': ['debounce', 'throttle', 'map', 'foreach', ['default', '_']]
+        }
       ],
-      dirs: [
-        './src/stores/**',
-        './src/utils/**',
-        './src/locales/**',
-        './src/lib/**'
-        // 排除特定文件
-        // "!./src/utils/xx/**",
-      ],
+      dirs: ['./src/lib/**', './src/hooks/**'],
       eslintrc: {
         enabled: false
       },

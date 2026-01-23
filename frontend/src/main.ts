@@ -11,6 +11,7 @@ async function init() {
 
   // 注册shadcn-vue UI组件
   await registerUI(app)
+  await registerCore(app)
 
   app.mount('#app')
 }

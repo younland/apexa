@@ -1,39 +1,39 @@
 <script setup lang="ts">
-  import { PlusIcon, Search } from 'lucide-vue-next'
+import { PlusIcon, Search } from 'lucide-vue-next'
 
-  interface NavItem {
-    title: string
-    url: string
-    icon: string
+interface NavItem {
+  title: string
+  url: string
+  icon: string
+}
+
+const navMain = [
+  {
+    title: 'Dashboard',
+    url: '#',
+    icon: ''
+  },
+  {
+    title: 'Lifecycle',
+    url: '#',
+    icon: ''
+  },
+  {
+    title: 'Analytics',
+    url: '#',
+    icon: 'IconChartBar'
+  },
+  {
+    title: 'Projects',
+    url: '#',
+    icon: 'IconFolder'
+  },
+  {
+    title: 'Team',
+    url: '#',
+    icon: 'IconUsers'
   }
-
-  const navMain = [
-    {
-      title: 'Dashboard',
-      url: '#',
-      icon: ''
-    },
-    {
-      title: 'Lifecycle',
-      url: '#',
-      icon: ''
-    },
-    {
-      title: 'Analytics',
-      url: '#',
-      icon: 'IconChartBar'
-    },
-    {
-      title: 'Projects',
-      url: '#',
-      icon: 'IconFolder'
-    },
-    {
-      title: 'Team',
-      url: '#',
-      icon: 'IconUsers'
-    }
-  ] as NavItem[]
+] as NavItem[]
 </script>
 
 <template>
@@ -46,7 +46,7 @@
             <Search />
           </InputGroupAddon>
         </InputGroup>
-        <Button variant="outline" size="icon">
+        <Button size="icon">
           <PlusIcon />
         </Button>
       </div>

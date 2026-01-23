@@ -6,4 +6,4 @@ public/
 *.png
 LICENSE
 CHANGELOG.md
-@/components/ui/
+src/ui/

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import HttpRequest from '@/components/request/http/index.vue'
+import HttpRequest from '@/components/request/http/index.vue'
 </script>
 
 <template>
@@ -11,19 +11,19 @@
       </div>
       <span class="text-sm">生产环境</span>
     </div>
-    <!-- <el-divider class="my-0!" style="border-top: 1px var(--el-border-color-light) var(--el-border-style)" /> -->
+    <Separator class="my-2" />
     <div class="flex-1">
-      <HttpRequest />
+      <RequestHttp />
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-  .basic-layout {
-    :deep(.el-splitter-bar__dragger-horizontal) {
-      &::before {
-        width: 1px;
-      }
+.basic-layout {
+  :deep(.el-splitter-bar__dragger-horizontal) {
+    &::before {
+      width: 1px;
     }
   }
+}
 </style>

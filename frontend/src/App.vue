@@ -1,7 +1,5 @@
-<script setup lang="ts">
-  import BasicLayout from '@/layout/Basic.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <BasicLayout />
+  <LayoutBasic />
 </template>
