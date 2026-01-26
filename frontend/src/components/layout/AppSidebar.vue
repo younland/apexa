@@ -37,7 +37,7 @@ const navMain = [
 </script>
 
 <template>
-  <Sidebar class="py-4">
+  <Sidebar class="py-4" variant="sidebar">
     <SidebarHeader>
       <div class="flex flex-row gap-2">
         <InputGroup>

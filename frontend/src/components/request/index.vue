@@ -10,8 +10,8 @@
       <span class="text-sm">生产环境</span>
     </div>
     <Separator class="my-2" />
-    <div class="flex-1">
-      <RequestHttp class="max-h-[90vh]" />
+    <div class="max-h-[95vh] flex-1">
+      <RequestHttp />
     </div>
   </div>
 </template>

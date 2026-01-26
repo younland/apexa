@@ -6,7 +6,7 @@
 
     <Separator class="my-4 h-[0.5px]!" />
 
-    <RequestCommonLayout>
+    <RequestCommonLayout :min-rb="54">
       <template #request>
         <RequestHttpRequest />
       </template>

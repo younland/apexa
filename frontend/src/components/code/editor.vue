@@ -2,7 +2,7 @@
 import { CodeEditor } from 'monaco-editor-vue3'
 import { editorOptions } from './option'
 
-type languageSupported = 'json' | 'css' | 'html' | 'javascript' | 'typescript'
+type languageSupported = 'json' | 'css' | 'html' | 'javascript' | 'typescript' | 'plain' | 'xml'
 
 const props = withDefaults(
   defineProps<{

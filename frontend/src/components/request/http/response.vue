@@ -17,7 +17,7 @@ const demo = ref<string>(`{
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="h-full pt-4">
     <Tabs class="h-full" default-value="Body">
       <TabsList class="http-tabs bg-transparent">
         <TabsTrigger
@@ -35,30 +35,16 @@ const demo = ref<string>(`{
         </TabsTrigger>
       </TabsList>
       <TabsContent value="Body" class="h-[calc(100%-200px)]">
-        <CodeEditor class="flex-1" :value="demo" readonly />
+        <CodeEditor class="overflow-hidden" :value="demo" readonly />
       </TabsContent>
       <TabsContent value="Cookie">
-        <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent class="grid gap-6">
-            <div class="grid gap-3">
-              <Label for="tabs-demo-name">Name</Label>
-              <Input id="tabs-demo-name" default-value="Pedro Duarte" />
-            </div>
-            <div class="grid gap-3">
-              <Label for="tabs-demo-username">Username</Label>
-              <Input id="tabs-demo-username" default-value="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
+        <EmptyComming />
+      </TabsContent>
+      <TabsContent value="Header">
+        <EmptyComming />
+      </TabsContent>
+      <TabsContent value="实际请求">
+        <EmptyComming />
       </TabsContent>
     </Tabs>
   </div>

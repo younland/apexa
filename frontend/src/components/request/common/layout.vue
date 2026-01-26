@@ -1,14 +1,35 @@
 <script lang="ts" setup>
 import { Splitpanes, Pane } from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
+
+const props = withDefaults(
+  defineProps<{
+    minLt?: number
+    minRb?: number
+  }>(),
+  {
+    minLt: 40,
+    minRb: 40
+  }
+)
 </script>
 
 <template>
-  <Splitpanes class="split default-theme flex" horizontal>
-    <Pane class="min-h-9 overflow-y-auto! bg-transparent! px-4" min-size="20">
+  <Splitpanes class="split default-theme" horizontal>
+    <Pane
+      class="overflow-y-auto! bg-transparent! px-4"
+      :style="{
+        minHeight: `${props.minLt}px`
+      }"
+    >
       <slot name="request"></slot>
     </Pane>
-    <Pane class="max-h-125 min-h-9 overflow-y-auto! bg-transparent! px-4" max-size="80">
+    <Pane
+      class="overflow-y-auto! bg-transparent! px-4"
+      :style="{
+        minHeight: `${props.minRb}px`
+      }"
+    >
       <slot name="response"></slot>
     </Pane>
   </Splitpanes>

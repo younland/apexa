@@ -3,23 +3,21 @@ import AppSidebar from './AppSidebar.vue'
 </script>
 
 <template>
-  <div class="basic-layout flex h-full w-full">
+  <div class="basic-layout flex h-screen w-full overflow-hidden">
     <SidebarProvider
-      class="hidden md:flex"
+      class="flex"
       :style="{
         '--sidebar-width': 'calc(var(--spacing) * 64)',
         '--header-height': 'calc(var(--spacing) * 12 + 1px)'
       }"
     >
-      <AppSidebar variant="sidebar" />
-      <SidebarInset>
-        <div class="flex flex-1 flex-col">
-          <Request class="h-full overflow-hidden">
-            <template #top-prefix>
-              <SidebarTrigger class="text-muted-foreground hover:text-muted-foreground" />
-            </template>
-          </Request>
-        </div>
+      <AppSidebar />
+      <SidebarInset class="min-w-0">
+        <Request class="h-screen overflow-hidden">
+          <template #top-prefix>
+            <SidebarTrigger class="text-muted-foreground hover:text-muted-foreground" />
+          </template>
+        </Request>
       </SidebarInset>
     </SidebarProvider>
   </div>
