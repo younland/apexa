@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Request from '@/components/request/index.vue'
 import AppSidebar from './AppSidebar.vue'
 </script>
 
@@ -13,10 +12,9 @@ import AppSidebar from './AppSidebar.vue'
       }"
     >
       <AppSidebar variant="sidebar" />
-      <main></main>
       <SidebarInset>
         <div class="flex flex-1 flex-col">
-          <Request>
+          <Request class="h-full overflow-hidden">
             <template #top-prefix>
               <SidebarTrigger class="text-muted-foreground hover:text-muted-foreground" />
             </template>

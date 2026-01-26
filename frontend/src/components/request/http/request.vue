@@ -4,7 +4,7 @@ const tabsList: string[] = ['Params', 'Body', 'Headers', 'Cookies']
 
 <template>
   <div class="h-full">
-    <Tabs class="border-b px-4" default-value="Params">
+    <Tabs class="h-full" default-value="Params">
       <TabsList class="http-tabs bg-transparent">
         <TabsTrigger
           v-for="tab in tabsList"
@@ -21,7 +21,7 @@ const tabsList: string[] = ['Params', 'Body', 'Headers', 'Cookies']
         </TabsTrigger>
       </TabsList>
       <TabsContent value="Params">
-        <Card>
+        <Card class="mb-4">
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>

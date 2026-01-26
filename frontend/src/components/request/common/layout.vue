@@ -4,13 +4,11 @@ import 'splitpanes/dist/splitpanes.css'
 </script>
 
 <template>
-  <Splitpanes class="split default-theme" horizontal>
-    <Pane class="min-h-9 overflow-y-auto! bg-transparent!">
-      <div class="split-request">
-        <slot name="request"></slot>
-      </div>
+  <Splitpanes class="split default-theme flex" horizontal>
+    <Pane class="min-h-9 overflow-y-auto! bg-transparent! px-4" min-size="20">
+      <slot name="request"></slot>
     </Pane>
-    <Pane class="min-h-9 overflow-y-auto! bg-transparent!">
+    <Pane class="max-h-125 min-h-9 overflow-y-auto! bg-transparent! px-4" max-size="80">
       <slot name="response"></slot>
     </Pane>
   </Splitpanes>
@@ -20,8 +18,8 @@ import 'splitpanes/dist/splitpanes.css'
 .default-theme {
   :deep(.splitpanes__splitter) {
     border: none;
-    background: var(--color-border);
-    height: 7px;
+    background: var(--sidebar-accent);
+    height: 5px;
     &:hover {
       background: var(--primary);
       &::before {

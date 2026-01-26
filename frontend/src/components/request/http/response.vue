@@ -1,10 +1,24 @@
 <script lang="ts" setup>
-const tabsList: string[] = ['Params', 'Body', 'Headers', 'Cookies']
+const tabsList: string[] = [
+  'Body',
+  'Cookie',
+  'Header',
+  // '控制台',
+  '实际请求'
+]
+
+const demo = ref<string>(`{
+    "code": 0,
+    "message": "success",
+    "data": [1, 2, 3],
+    "data1": [1, 2, 3],
+    "data2": [1, 2, 3]
+  }`)
 </script>
 
 <template>
   <div class="h-full">
-    <Tabs class="border-b px-4" default-value="Params">
+    <Tabs class="h-full" default-value="Body">
       <TabsList class="http-tabs bg-transparent">
         <TabsTrigger
           v-for="tab in tabsList"
@@ -20,7 +34,10 @@ const tabsList: string[] = ['Params', 'Body', 'Headers', 'Cookies']
           {{ tab }}
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="Params">
+      <TabsContent value="Body" class="h-[calc(100%-200px)]">
+        <CodeEditor class="flex-1" :value="demo" readonly />
+      </TabsContent>
+      <TabsContent value="Cookie">
         <Card>
           <CardHeader>
             <CardTitle>Account</CardTitle>
@@ -40,29 +57,6 @@ const tabsList: string[] = ['Params', 'Body', 'Headers', 'Cookies']
           </CardContent>
           <CardFooter>
             <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="Body">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent class="grid gap-6">
-            <div class="grid gap-3">
-              <Label for="tabs-demo-current">Current password</Label>
-              <Input id="tabs-demo-current" type="password" />
-            </div>
-            <div class="grid gap-3">
-              <Label for="tabs-demo-new">New password</Label>
-              <Input id="tabs-demo-new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
           </CardFooter>
         </Card>
       </TabsContent>
