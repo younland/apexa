@@ -1,5 +1,17 @@
 <script setup lang="ts">
+import { Events } from '@wailsio/runtime'
 import AppSidebar from './AppSidebar.vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  Events.On('time', (val) => {
+    console.log(val)
+  })
+})
+
+onBeforeMount(() => {
+  Events.Off('time')
+})
 </script>
 
 <template>

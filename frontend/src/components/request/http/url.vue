@@ -1,58 +1,25 @@
 <script lang="ts" setup>
-import color from 'color'
-import { find, map } from 'lodash-es'
+import type { HttpOptions, HttpType } from '@/lib/color'
+import { find } from 'lodash-es'
+import { CollectionsService } from '#/apexa/service'
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'OPTIONS'
-
-interface HttpMethodOption {
-  value: HttpMethod
-  color: string
-  bgColor?: string
-}
-
-const selectMethod = ref<HttpMethod>('GET')
-const httpOptions: HttpMethodOption[] = [
-  {
-    value: 'GET',
-    color: '#1EC79D'
-  },
-  {
-    value: 'POST',
-    color: '#FF6600'
-  },
-  {
-    value: 'PUT',
-    color: '#4167F0'
-  },
-  {
-    value: 'DELETE',
-    color: '#E63415'
-  },
-  {
-    value: 'OPTIONS',
-    color: '#409EFF'
-  }
-]
-
-const httpSelectOptions = computed(() => {
-  return map(httpOptions, (item: HttpMethodOption) => {
-    return {
-      ...item,
-      bgColor: color(item.color).alpha(0.3).lighten(0.5).string()
-    } as HttpMethodOption
-  })
-})
+const select = ref<HttpType>('GET')
+const httpOptions: HttpOptions[] = transformHttpOptions()
 
 const highSelect = computed(() => {
-  return find(httpSelectOptions.value, (i: HttpMethodOption) => i.value === selectMethod.value)
+  return find(httpOptions, (i: HttpOptions) => i.value === select.value)
 })
+
+const send = async () => {
+  const res = await CollectionsService.OpenCollection()
+}
 </script>
 
 <template>
   <div class="flex flex-row gap-2 px-4">
     <InputGroup>
       <InputGroupAddon class="ml-0! border-0! pl-1!">
-        <Select v-model="selectMethod">
+        <Select v-model="select">
           <SelectTrigger
             class="h-7! border-0!"
             :style="{
@@ -64,7 +31,7 @@ const highSelect = computed(() => {
           </SelectTrigger>
           <SelectContent class="max-h-60 min-w-24">
             <SelectItem
-              v-for="(o, i) in httpSelectOptions"
+              v-for="(o, i) in httpOptions"
               :key="i"
               :value="o.value"
               :style="{
@@ -79,7 +46,7 @@ const highSelect = computed(() => {
       <InputGroupInput />
     </InputGroup>
 
-    <Button>
+    <Button @click="send">
       <Icon icon="lucide:send" :size="16" />
       发送
     </Button>

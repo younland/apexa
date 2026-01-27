@@ -5,12 +5,12 @@ version: '3'
 
 # This information is used to generate the build assets.
 info:
-  companyName: "My Company" # The name of the company
-  productName: "My Product" # The name of the application
-  productIdentifier: "com.mycompany.myproduct" # The unique product identifier
-  description: "A program that does X" # The application description
-  copyright: "(c) 2025, My Company" # Copyright text
-  comments: "Some Product Comments" # Comments
+  companyName: "Apexa" # The name of the company
+  productName: "younland" # The name of the application
+  productIdentifier: "www.younland.cn" # The unique product identifier
+  description: "轻量级离线 API 测试工具" # The application description
+  copyright: "(c) 2026, younland" # Copyright text
+  comments: "Apexa 是一款极简、以离线为先的 API 测试工具，旨在追求速度和峰值性能。" # Comments
   version: "0.0.1" # The application version
 
 # iOS build configuration (uncomment to customise iOS project generation)

@@ -1,8 +1,12 @@
 import { defineConfig } from 'vite'
+// @ts-ignore
 import vue from '@vitejs/plugin-vue'
+// @ts-ignore
 import wails from '@wailsio/runtime/plugins/vite'
+// @ts-ignore
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
+// @ts-ignore
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
@@ -16,7 +20,7 @@ export default defineConfig({
       dts: true,
       imports: [
         'vue',
-        // 'pinia',
+        'pinia',
         // 其他需要自动导入的库
         {
           '@vueuse/core': ['useMouse', 'useFetch'],
@@ -37,7 +41,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '#': fileURLToPath(new URL('./bindings', import.meta.url))
     }
   }
 })

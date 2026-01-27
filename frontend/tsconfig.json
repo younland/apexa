@@ -11,18 +11,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
     "types": [],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "#/*": ["./bindings/*"]
     }
   },
   "include": [
@@ -31,8 +27,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "bindings",
+    "bindings/**/*.ts",
     "./auto-imports.d.ts",
-    "./components.d.ts"
-  ],
+    "./components.d.ts",
+    "vite.config.ts"
+  ]
 }

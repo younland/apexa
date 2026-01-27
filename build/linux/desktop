@@ -1,13 +1,13 @@
 [Desktop Entry]
 Version=1.0
-Name=My Product
-Comment=A apexa application
+Name=younland
+Comment=轻量级离线 API 测试工具
 # The Exec line includes %u to pass the URL to the application
-Exec=/usr/local/bin/apexa.exe %u
+Exec=/usr/local/bin/apexa %u
 Terminal=false
 Type=Application
-Icon=apexa.exe
+Icon=apexa
 Categories=Utility;
-StartupWMClass=apexa.exe
+StartupWMClass=apexa
 
  

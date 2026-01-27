@@ -1,6 +1,8 @@
 package main
 
 import (
+	"apexa/service"
+	"context"
 	"embed"
 	_ "embed"
 	"log"
@@ -24,11 +26,9 @@ func init() {
 	application.RegisterEvent[string]("time")
 }
 
-// main function serves as the application's entry point. It initializes the application, creates a window,
-// and starts a goroutine that emits a time-based event every second. It subsequently runs the application and
-// logs any error that might occur.
-func main() {
-
+func newApp(
+	collections *service.CollectionsService,
+) *application.App {
 	// Create a new Wails application by providing the necessary options.
 	// Variables 'Name' and 'Description' are for application metadata.
 	// 'Assets' configures the asset server with the 'FS' variable pointing to the frontend files.
@@ -38,15 +38,29 @@ func main() {
 		Name:        "apexa",
 		Description: "轻量级离线 API 测试工具",
 		Services: []application.Service{
-			application.NewService(&GreetService{}),
+			application.NewService(collections),
 		},
 		Assets: application.AssetOptions{
+			// 如果设置环境变量FRONTEND_DEVSERVER_URL, 则网页会自动网络请求, 即本地url服务.
 			Handler: application.AssetFileServerFS(assets),
 		},
 		Mac: application.MacOptions{
 			ApplicationShouldTerminateAfterLastWindowClosed: true,
 		},
 	})
+	collections.SetApp(app)
+
+	return app
+}
+
+// main function serves as the application's entry point. It initializes the application, creates a window,
+// and starts a goroutine that emits a time-based event every second. It subsequently runs the application and
+// logs any error that might occur.
+// goland调试增加: -tags dev -gcflags "all=-N -l"
+// 热重载web dev: FRONTEND_DEVSERVER_URL=http://localhost:5173
+func main() {
+
+	app, _ := wireApp(context.Background())
 
 	// Create a new window with the necessary options.
 	// 'Title' is the title of the window.

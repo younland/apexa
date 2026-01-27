@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 includes:
   common: ./build/Taskfile.yml
@@ -11,9 +11,14 @@ includes:
 vars:
   APP_NAME: "apexa"
   BIN_DIR: "bin"
-  VITE_PORT: '{{.WAILS_VITE_PORT | default 9245}}'
+  VITE_PORT: "{{.WAILS_VITE_PORT | default 9245}}"
 
 tasks:
+  wire:
+    summary: wire the application
+    cmds:
+      - wire ./...
+
   build:
     summary: Builds the application
     cmds:

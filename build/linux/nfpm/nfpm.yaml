@@ -3,26 +3,26 @@
 #
 # The lines below are called `modelines`. See `:help modeline`
 
-name: "apexa.exe"
+name: "apexa"
 arch: ${GOARCH}
 platform: "linux"
-version: "0.1.0"
+version: "0.0.1"
 section: "default"
 priority: "extra"
 maintainer: ${GIT_COMMITTER_NAME} <${GIT_COMMITTER_EMAIL}>
-description: "A apexa application"
-vendor: "My Company"
+description: "轻量级离线 API 测试工具"
+vendor: "Apexa"
 homepage: "https://wails.io"
 license: "MIT"
 release: "1"
 
 contents:
-  - src: "./bin/apexa.exe"
-    dst: "/usr/local/bin/apexa.exe"
+  - src: "./bin/apexa"
+    dst: "/usr/local/bin/apexa"
   - src: "./build/appicon.png"
-    dst: "/usr/share/icons/hicolor/128x128/apps/apexa.exe.png"
-  - src: "./build/linux/apexa.exe.desktop"
-    dst: "/usr/share/applications/apexa.exe.desktop"
+    dst: "/usr/share/icons/hicolor/128x128/apps/apexa.png"
+  - src: "./build/linux/apexa.desktop"
+    dst: "/usr/share/applications/apexa.desktop"
 
 # Default dependencies for Debian 12/Ubuntu 22.04+ with WebKit 4.1
 depends:
